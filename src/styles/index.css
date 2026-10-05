@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  --page: #f4f7f2;
+  --surface: #ffffff;
+  --surface-soft: #f7faf6;
+  --ink: #193326;
+  --muted: #65796b;
+  --line: #dce8dd;
+  --brand: #2f8f46;
+  --brand-dark: #236d35;
+  --accent: #d88d31;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef3ed;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfd0c0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #91ad97;
+}
+
+/* Presentation utilities shared by the portal screens. */
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 10px 28px rgba(27, 67, 42, 0.06);
+}
+
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.875rem;
+  box-shadow: 0 6px 20px rgba(27, 67, 42, 0.05);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.glass-card:hover {
+  border-color: #9fc5a6;
+  box-shadow: 0 10px 24px rgba(27, 67, 42, 0.08);
+}
+
+.glow-brand {
+  box-shadow: 0 8px 18px rgba(43, 125, 66, 0.16);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
+}
+
+.glow-amber {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.25);
+}
+
+.auth-modal>div {
+  background: #ffffff;
+  border-color: #dce8dd;
+}
+
+.auth-modal .bg-slate-900,
+.auth-modal .bg-slate-950\/60 {
+  background: #ffffff;
+}
+
+.auth-modal .border-slate-800,
+.auth-modal .border-slate-700\/80 {
+  border-color: #e1ebe1;
+}
+
+.auth-modal .text-white {
+  color: #183126;
+}
+
+.auth-modal .text-slate-300,
+.auth-modal .text-slate-400 {
+  color: #647a68;
+}
+
+.auth-modal .text-slate-200 {
+  color: #376343;
+}
+
+/* Keep screen markup crisp and readable inside the light application shell. */
+.portal-content {
+  background: var(--page);
+  color: var(--ink);
+  min-width: 0;
+  min-height: 100vh;
+}
+
+.portal-content > * {
+  min-width: 0;
+}
+
+/* Headings and primary text in portal */
+.portal-content h1,
+.portal-content h2,
+.portal-content h3,
+.portal-content h4 {
+  color: #0f2419;
+}
+
+/* Accessible, crisp card & panel surfaces */
+.portal-content .glass-panel,
+.portal-content .glass-card {
+  background-color: #ffffff;
+  border-color: #dce8dd;
+  color: #193326;
+}
+
+/* Inputs, Selects, and Textareas */
+.portal-content input,
+.portal-content select,
+.portal-content textarea {
+  border: 1px solid #cbdccc !important;
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+}
+
+.portal-content input::placeholder,
+.portal-content textarea::placeholder {
+  color: #64748b !important;
+}
+
+.portal-content input:focus,
+.portal-content select:focus,
+.portal-content textarea:focus {
+  border-color: var(--brand) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 143, 70, 0.15) !important;
+}
+
+/* Buttons: Ensure all action and colored buttons maintain crisp white text */
+.portal-content button {
+  min-height: 2.25rem;
+}
+
+.portal-content button[class*="bg-emerald"],
+.portal-content button[class*="bg-green"],
+.portal-content button[class*="bg-brand"],
+.portal-content button[class*="bg-blue"],
+.portal-content button[class*="bg-indigo"],
+.portal-content button[class*="bg-slate-900"],
+.portal-content button[class*="bg-slate-950"],
+.portal-content button[class*="bg-red"],
+.portal-content button[class*="bg-rose"] {
+  color: #ffffff !important;
+}
+
+.portal-content button[class*="bg-emerald"] *,
+.portal-content button[class*="bg-green"] *,
+.portal-content button[class*="bg-brand"] *,
+.portal-content button[class*="bg-blue"] *,
+.portal-content button[class*="bg-indigo"] *,
+.portal-content button[class*="bg-slate-900"] *,
+.portal-content button[class*="bg-slate-950"] *,
+.portal-content button[class*="bg-red"] *,
+.portal-content button[class*="bg-rose"] * {
+  color: #ffffff !important;
+}
+
+.portal-content button[class*="bg-emerald"]:hover,
+.portal-content button[class*="bg-green"]:hover,
+.portal-content button[class*="bg-brand"]:hover {
+  background-color: #1f6b32 !important;
+  color: #ffffff !important;
+}
+
+.portal-content button[class*="bg-blue"]:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+/* Status Badges & Accents - High Contrast */
+.portal-content [class*="text-emerald-4"],
+.portal-content [class*="text-emerald-5"],
+.portal-content [class*="text-emerald-6"],
+.portal-content [class*="text-green-4"],
+.portal-content [class*="text-green-5"],
+.portal-content [class*="text-green-6"] {
+  color: #166534;
+}
+
+.portal-content [class*="text-blue-4"],
+.portal-content [class*="text-blue-5"],
+.portal-content [class*="text-blue-6"],
+.portal-content [class*="text-cyan-4"],
+.portal-content [class*="text-cyan-5"] {
+  color: #1d4ed8;
+}
+
+.portal-content [class*="text-amber-4"],
+.portal-content [class*="text-amber-5"],
+.portal-content [class*="text-amber-6"],
+.portal-content [class*="text-yellow-5"] {
+  color: #b45309;
+}
+
+.portal-content [class*="text-rose-4"],
+.portal-content [class*="text-rose-5"],
+.portal-content [class*="text-rose-6"],
+.portal-content [class*="text-red-5"] {
+  color: #b91c1c;
+}
+
+/* Modals High Contrast Styling */
+.auth-modal > div,
+.voice-modal > div,
+.ai-modal > div,
+.tracking-modal > div {
+  background: #ffffff !important;
+  border: 1px solid #dce8dd !important;
+  color: #111827 !important;
+}
+
+.auth-modal h1, .auth-modal h2, .auth-modal h3,
+.voice-modal h1, .voice-modal h2, .voice-modal h3,
+.ai-modal h1, .ai-modal h2, .ai-modal h3,
+.tracking-modal h1, .tracking-modal h2, .tracking-modal h3 {
+  color: #0f2419 !important;
+}
+
+@media (max-width: 640px) {
+
+  .voice-modal,
+  .ai-modal {
+    align-items: flex-start;
+    padding: 0.75rem;
+    overflow-y: auto;
+  }
+
+  .voice-modal>div,
+  .ai-modal>div {
+    max-height: calc(100vh - 1.5rem);
+  }
+
+  .voice-modal .flex-wrap,
+  .ai-modal .flex-wrap {
+    row-gap: 0.65rem;
+  }
+}
+
+/* Leaflet dark map fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background-color: #e9f0e8 !important;
+  border-radius: 0.75rem;
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  color: #183126 !important;
+  border: 1px solid #dce8dd;
+  box-shadow: 0 10px 25px -5px rgba(27, 67, 42, 0.16);
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  line-height: 1.4;
+}
+
+/* Pulse ring animation */
+@keyframes ring-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.animate-ring {
+  animation: ring-pulse 2s infinite;
+}

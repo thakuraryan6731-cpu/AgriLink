@@ -1,0 +1,22 @@
+.env
+.env.local
+.env.*.local
+
+node_modules/
+.venv/
+backend/.venv/
+
+dist/
+build/
+
+__pycache__/
+*.py[cod]
+
+.vscode/
+.idea/
+
+*.log
+npm-debug.log*
+
+# Supabase local temporary files
+supabase/.temp/
